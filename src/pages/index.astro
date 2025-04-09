@@ -1,11 +1,78 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Home from "../pages/Home.astro";
+import Music from "../pages/Music.astro";
+import { studio } from "../data/studio";
+import { instruments } from "../data/instruments";
 ---
 
 <Layout>
-	<Welcome />
+	<Navbar />
+	<Home />
+	<main>
+		<Music />
+		<section id="about" class="my-24">
+			<h1 class="font-extrabold text-5xl text-primary my-10">
+				ABOUT NINE LIVES STUDIO
+			</h1>
+			<div class="grid gap-3">
+				<p>
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+					Sequi ullam ab debitis est accusamus corporis expedita
+					quaerat, quis consequuntur officiis labore tempora,
+					consequatur illo quia dolore repellendus quasi, nisi
+					officia.
+				</p>
+				<p>
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+					Sequi ullam ab debitis est accusamus corporis expedita
+					quaerat, quis consequuntur officiis labore tempora,
+					consequatur illo quia dolore repellendus quasi, nisi
+					officia.
+				</p>
+				<p>
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+					Sequi ullam ab debitis est accusamus corporis expedita
+					quaerat, quis consequuntur officiis labore tempora,
+					consequatur illo quia dolore repellendus quasi, nisi
+					officia.
+				</p>
+				<img
+					src="#"
+					alt=""
+					class="my-3 aspect-square rounded-md bg-neutral-100"
+				/>
+			</div>
+		</section>
+		<section id="contact" class="my-24">
+			<h1 class="font-extrabold text-5xl text-primary my-10">
+				NINE LIVES STUDIO
+			</h1>
+			<div class="grid gap-10">
+				<article>
+					<p class="text-sm font-bold">General Information</p>
+					<p class="my-3 text-sm font-regular">Lorem ipsum...</p>
+					<a
+						class="font-medium text-primary underline"
+						href="mailto:info@ninelives.studio"
+						>info@ninelives.studio</a
+					>
+				</article>
+				<article>
+					<p class="text-sm font-bold">Bookings</p>
+					<p class="my-3 text-sm font-normal">Lorem ipsum...</p>
+					<a
+						class="font-medium text-primary underline"
+						href="mailto:hello@ninelives.studio"
+						>info@ninelives.studio</a
+					>
+				</article>
+			</div>
+		</section>
+	</main>
+	<footer class="py-10 px-5 bg-primary text-white font-light">
+		<p>Ninelivestudio.com - Copyright 2025</p>
+		<p>Made with manic obsession.</p>
+	</footer>
 </Layout>

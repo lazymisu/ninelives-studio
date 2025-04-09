@@ -1,0 +1,61 @@
+---
+import { services } from "../data/services";
+---
+
+<section
+    id="home"
+    class="bg-green-50 container mx-auto px-5 pt-[100px] grid gap-4 xl:grid-cols-6 xl:grid-rows-6 xl:h-screen xl:pb-12"
+>
+    <header class="xl:row-start-1 xl:row-span-2 xl:col-span-6">
+        <h1
+            class="font-extrabold text-primary text-5xl sm:text-[12dvw] xl:text-[23dvh] leading-none"
+        >
+            NINE LIVES
+        </h1>
+    </header>
+    <header class="xl:row-start-3 xl:row-span-2 xl:col-span-4">
+        <h1
+            class="font-extrabold text-primary text-5xl xl:text-[23dvh] leading-none"
+        >
+            STUDIO
+        </h1>
+    </header>
+    <div
+        class="xl:col-span-2 xl:row-start-5 xl:row-span-2 flex flex-col justify-between"
+    >
+        <div class="flex flex-row justify-between">
+            <h1 class="font-bold text-sm">Servicios</h1>
+            <a
+                class="font-medium text-primary underline text-sm"
+                href="#services">Mas informacion</a
+            >
+        </div>
+        <ol class="grid gap-2">
+            {
+                services
+                    .slice(0, 3)
+                    .map((e) => (
+                        <li class="font-medium text-sm bg-neutral-100 rounded-xl p-4">
+                            {e}
+                        </li>
+                    ))
+            }
+        </ol>
+    </div>
+    <div class="xl:row-start-3 xl:row-span-4 xl:col-start-5 xl:col-span-2">
+        <img src="#" alt="" class="rounded-md aspect-square bg-neutral-100" />
+    </div>
+    <div
+        class="xl:col-start-4 xl:row-span-2 xl:row-start-5 flex flex-col justify-between"
+    >
+        <p class="text-balance text-sm mb-3">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus
+            hic esse architecto in dolorum obcaecati, doloremque animi nesciunt
+            iure eum rem totam dolore eius laudantium culpa illum ab praesentium
+            fuga!
+        </p>
+        <a class="font-medium text-primary underline text-sm" href="#about"
+            >Sobre nosotros</a
+        >
+    </div>
+</section>

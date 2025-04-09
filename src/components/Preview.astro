@@ -1,0 +1,35 @@
+---
+interface Props {
+    index: number;
+    type: string;
+    title: string;
+    image: string;
+    url: string;
+}
+
+const { index, type, title, image, url } = Astro.props;
+
+const styles = [
+    "sm:col-span-2 sm:row-span-3 sm:col-start-1",
+    "sm:col-span-1 sm:row-span-2 sm:col-start-3 sm:row-start-2 justify-end",
+    "sm:col-span-1 sm:row-span-2 sm:col-start-4 sm:row-start-1 justify-start",
+    "sm:col-span-2 sm:row-span-3 sm:col-start-5",
+];
+---
+
+<article
+    class={"flex flex-col " + styles[index]}
+>
+    <figure class="relative">
+        <img src={image} class="rounded-md bg-neutral-100 aspect-square" />
+        <p
+            class="py-1 px-3 bg-black bg-opacity-15 rounded-md absolute top-2 left-2 text-[8px] uppercase"
+        >
+            {type}
+        </p>
+    </figure>
+    <p class="truncate mt-3 mb-1 text-sm font-medium">
+        {title}
+    </p>
+    <a class="font-medium text-primary underline" href={url}>Listen now</a>
+</article>

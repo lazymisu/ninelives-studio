@@ -1,0 +1,48 @@
+---
+import Socials from "../components/Socials.astro";
+
+const options = [
+    { title: "Inicio", url: "" },
+    { title: "Portfolio", url: "" },
+    { title: "Nosotros", url: "" },
+    { title: "Contacto", url: "" },
+];
+---
+
+<nav class="container mx-auto fixed top-0 left-0 right-0 z-50">
+    <div class="flex justify-between items-center py-3 px-5 text-primary">
+        <Socials />
+        <h2 class="hidden font-extrabold text-xl">NINE LIVES STUDIO</h2>
+        <button class="py-3 px-4 bg-primary text-white rounded-md sm:hidden">
+            <i class="fas fa-bars fa-2x"></i>
+        </button>
+        <ol class="text-black font-bold grid-flow-col gap-3 hidden sm:grid">
+            {
+                options.map((e) => (
+                    <li>
+                        <a href={e.url}>{e.title}</a>
+                    </li>
+                ))
+            }
+        </ol>
+    </div>
+    <section class="py-2 px-4 w-screen h-screen bg-green-100 hidden">
+        <div
+            class="bg-yellow-500 p-1 rounded-md flex justify-between items-start"
+        >
+            <ol class="p-5 text-white grid gap-3 text-3xl pt-11">
+                {
+                    options.map((e) => (
+                        <li>
+                            <a href={e.url}>{e.title}</a>
+                        </li>
+                    ))
+                }
+                <li><Socials /></li>
+            </ol>
+            <button class="py-3 px-4 bg-primary text-white rounded-md">
+                <i class="fas fa-close fa-2x"></i>
+            </button>
+        </div>
+    </section>
+</nav>

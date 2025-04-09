@@ -1,0 +1,23 @@
+---
+import Preview from "../components/Preview.astro";
+import { music } from "../data/music";
+---
+
+<section id="music" class="container mx-auto sm:h-screen pt-[30px] bg-orange-50">
+    <h1 class="font-extrabold text-5xl text-primary my-10 sm:text-9xl">
+        MUSIC MUSIC
+    </h1>
+    <div class="grid grid-cols-2 gap-4 sm:grid-cols-6 sm:grid-rows-3 bg-yellow-50">
+        {
+            music.map((e, i) => (
+                <Preview
+                    index={i}
+                    type={e.type}
+                    title={e.title}
+                    image={e.image}
+                    url={e.url}
+                />
+            ))
+        }
+    </div>
+</section>
