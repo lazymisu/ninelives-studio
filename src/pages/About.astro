@@ -1,0 +1,25 @@
+---
+import { Image } from 'astro:assets';
+import aboutImage from '../assets/about-image.jpeg';
+---
+
+<section id="about" class="xl:min-h-screen w-full flex flex-col md:flex-row gap-4 px-4 md:px-12 xl:px-24 py-8 md:py-12 xl:py-20" style="background-color:var(--color-bg-section);">
+  <div class="w-full md:w-2/3 flex order-last md:order-none">
+    <Image src={aboutImage} alt="About Nine Lives Studio" class="rounded-xl object-cover w-full md:max-w-[50vw] aspect-square md:aspect-auto bg-[var(--color-bg-main)]" />
+  </div>
+  <div class="w-full md:w-1/2 flex flex-col relative">
+    <h1 class="w-full text-left font-extrabold text-[8vw] leading-none tracking-tight uppercase mb-8" style="color:var(--color-primary);">
+      <span class="md:block md:-ml-36">ABOUT</span>
+      <span class="md:block md:-ml-24">NINE LIVES</span>
+      <span class="md:block md:-ml-14">STUDIO</span>
+    </h1>
+    <div>
+      <p class="mb-6 text-base md:text-lg" style="color:var(--color-text-main);">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      </p>
+      <p class="text-base md:text-lg" style="color:var(--color-text-main);">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget ultricies nisl nisl eget nisl. Sed euismod, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget ultricies nisl nisl eget nisl. Sed euismod, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget ultricies nisl nisl aliquam nisl, eget ultricies nisl nisl eget nisl.
+      </p>
+    </div>
+  </div>
+</section>

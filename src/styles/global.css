@@ -2,10 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-.bg-primary {
-    background-color: red;
+:root {
+    /* Dark mode variables */
+    --color-dark-bg-main: #232323;
+    --color-dark-bg-section: #151516;
+    --color-dark-primary: #FC4AB5;
+    --color-dark-text-main: #D0CFCD;
+    --color-dark-text-accent: #CF552C;
 }
 
-.text-primary {
-    color: red;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg-main: var(--color-dark-bg-main);
+    --color-bg-section: var(--color-dark-bg-section);
+    --color-primary: var(--color-dark-primary);
+    --color-text-main: var(--color-dark-text-main);
+    --color-text-accent: var(--color-dark-text-accent);
+  }
 }
+ body {
+  background-color: var(--color-bg-section);
+ }

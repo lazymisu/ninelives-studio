@@ -1,5 +1,14 @@
 export const services = [
-	"Mezcla",
-	"Master",
-	"Post-Produccion de audio",
+	{
+		icon: "🎚️",
+		title: "Mezcla"
+	},
+	{
+		icon: "💿",
+		title: "Master"
+	},
+	{
+		icon: "🎧",
+		title: "Post-Produccion de audio"
+	}
 ];

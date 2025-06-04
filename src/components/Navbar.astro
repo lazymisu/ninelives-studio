@@ -1,22 +1,91 @@
 ---
-import Socials from "../components/Socials.astro";
+import Socials from "./Socials.astro";
 
 const options = [
-    { title: "Inicio", url: "" },
-    { title: "Portfolio", url: "" },
-    { title: "Nosotros", url: "" },
-    { title: "Contacto", url: "" },
+    { title: "Home", url: "#home" },
+    { title: "Portfolio", url: "#portfolio" },
+    { title: "About", url: "#about" },
+    { title: "Contact", url: "#contact" },
 ];
 ---
 
-<nav class="container mx-auto fixed top-0 left-0 right-0 z-50">
-    <div class="flex justify-between items-center py-3 px-5 text-primary">
-        <Socials />
-        <h2 class="hidden font-extrabold text-xl">NINE LIVES STUDIO</h2>
-        <button class="py-3 px-4 bg-primary text-white rounded-md sm:hidden">
-            <i class="fas fa-bars fa-2x"></i>
-        </button>
-        <ol class="text-black font-bold grid-flow-col gap-3 hidden sm:grid">
+<nav
+    class="px-4 md:px-12 xl:px-24 fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+    id="navbar"
+>
+    <div
+        class="absolute inset-0 backdrop-blur-sm [mask-image:linear-gradient(to_bottom,black_0%,black_70%,transparent_100%)]"
+    >
+    </div>
+    <div
+        class="relative flex justify-between items-end h-20"
+        style="color:var(--color-primary);"
+    >
+        <div class="flex items-center gap-8 h-full">
+            <div class="socials-nav h-full items-end md:flex hidden">
+                <Socials />
+            </div>
+            <h2
+                class="font-extrabold text-2xl md:text-3xl transition-all duration-300 h-full items-end md:hidden flex"
+                id="brand-name"
+            >
+                NINE LIVES STUDIO
+            </h2>
+        </div>
+        <div class="flex items-end gap-8 h-full">
+            <ol
+                class="font-bold grid-flow-col gap-8 transition-all duration-300 h-full items-end text-xl md:grid hidden"
+                id="nav-links"
+                style="color:var(--color-text-main);"
+            >
+                {
+                    options.map((e) => (
+                        <li>
+                            <a
+                                href={e.url}
+                                class="hover:text-[var(--color-primary)] transition-colors"
+                            >
+                                {e.title}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ol>
+            <button
+                class="py-3 px-4 text-white rounded-md transition-all duration-300 flex items-end md:hidden"
+                id="menu-button"
+                style="background-color:var(--color-primary);"
+                aria-label="Toggle menu"
+            >
+                <i class="fas fa-bars fa-2x"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<section
+    id="mobile-menu"
+    class="fixed inset-0 z-[100] bg-black bg-opacity-50 backdrop-blur-md hidden transition-opacity duration-300"
+>
+    <div
+        class="absolute right-0 w-3/4 max-w-sm p-1 mr-4 mt-4 rounded-lg transform transition-all duration-300 ease-in-out scale-0 origin-top-right"
+        id="mobile-menu-content"
+        style="background-color:var(--color-primary);"
+    >
+        <div class="flex justify-end">
+            <button
+                class="py-3 px-4 text-white rounded-md flex items-end hover:bg-[var(--color-bg-section)] transition-colors"
+                id="close-menu-button"
+                style="background-color:var(--color-bg-section);"
+                aria-label="Close menu"
+            >
+                <i class="fas fa-times fa-2x"></i>
+            </button>
+        </div>
+        <ol
+            class="flex flex-col gap-4 px-8 pb-8 text-xl font-bold"
+            style="color:var(--color-text-main);"
+        >
             {
                 options.map((e) => (
                     <li>
@@ -24,25 +93,118 @@ const options = [
                     </li>
                 ))
             }
+            <ol class="flex gap-8">
+                <li>
+                    <a
+                        class="text-2xl"
+                        style="color:var(--color-text-main);"
+                        href="https://instagram.com/ninelives.studio"
+                        target="_blank"
+                        aria-label="Instagram"
+                    >
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        class="text-2xl"
+                        style="color:var(--color-text-main);"
+                        href="https://soundcloud.com/ninelives.studio"
+                        target="_blank"
+                        aria-label="SoundCloud"
+                    >
+                        <i class="fab fa-soundcloud"></i>
+                    </a>
+                </li>
+            </ol>
         </ol>
     </div>
-    <section class="py-2 px-4 w-screen h-screen bg-green-100 hidden">
-        <div
-            class="bg-yellow-500 p-1 rounded-md flex justify-between items-start"
-        >
-            <ol class="p-5 text-white grid gap-3 text-3xl pt-11">
-                {
-                    options.map((e) => (
-                        <li>
-                            <a href={e.url}>{e.title}</a>
-                        </li>
-                    ))
-                }
-                <li><Socials /></li>
-            </ol>
-            <button class="py-3 px-4 bg-primary text-white rounded-md">
-                <i class="fas fa-close fa-2x"></i>
-            </button>
-        </div>
-    </section>
-</nav>
+</section>
+
+<script>
+    class NavbarController {
+        private menuButton!: HTMLElement;
+        private mobileMenu!: HTMLElement;
+        private mobileMenuContent!: HTMLElement;
+        private closeMenuButton!: HTMLElement;
+
+        constructor() {
+            this.initializeElements();
+            this.setupEventListeners();
+        }
+
+        private initializeElements(): void {
+            this.menuButton = document.getElementById(
+                "menu-button",
+            ) as HTMLElement;
+            this.mobileMenu = document.getElementById(
+                "mobile-menu",
+            ) as HTMLElement;
+            this.mobileMenuContent = document.getElementById(
+                "mobile-menu-content",
+            ) as HTMLElement;
+            this.closeMenuButton = document.getElementById(
+                "close-menu-button",
+            ) as HTMLElement;
+
+            if (
+                !this.menuButton ||
+                !this.mobileMenu ||
+                !this.mobileMenuContent ||
+                !this.closeMenuButton
+            ) {
+                console.error(
+                    "No se pudieron encontrar todos los elementos necesarios para el menú móvil",
+                );
+                return;
+            }
+        }
+
+        private setupEventListeners(): void {
+            this.menuButton.addEventListener("click", this.openMenu.bind(this));
+            this.closeMenuButton.addEventListener(
+                "click",
+                this.closeMenu.bind(this),
+            );
+            this.mobileMenu.addEventListener(
+                "click",
+                this.handleMenuClick.bind(this),
+            );
+        }
+
+        private openMenu(): void {
+            this.mobileMenu.classList.remove("hidden");
+            // Ensure layout calculation happens
+            this.mobileMenu.offsetHeight;
+
+            // Animate popover scale in
+            this.mobileMenuContent.classList.remove("scale-0");
+            this.mobileMenuContent.classList.add("scale-100");
+        }
+
+        private closeMenu(): void {
+            // Animate popover scale out
+            this.mobileMenuContent.classList.remove("scale-100");
+            this.mobileMenuContent.classList.add("scale-0");
+
+            this.mobileMenuContent.addEventListener(
+                "transitionend",
+                () => {
+                    this.mobileMenu.classList.add("hidden");
+                },
+                { once: true },
+            );
+        }
+
+        private handleMenuClick(event: MouseEvent): void {
+            // Close menu if clicking outside the content
+            if (event.target === this.mobileMenu) {
+                this.closeMenu();
+            }
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        new NavbarController();
+    });
+</script>
