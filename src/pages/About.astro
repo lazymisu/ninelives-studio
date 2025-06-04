@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import aboutImage from '../assets/about-image.jpeg';
 ---
 
-<section id="about" class="xl:min-h-screen w-full flex flex-col md:flex-row gap-4 px-4 md:px-12 xl:px-24 py-8 md:py-12 xl:py-20" style="background-color:var(--color-bg-section);">
+<section id="about" class="w-full flex flex-col md:flex-row gap-4 px-4 md:px-12 xl:px-24 py-8 md:py-12 xl:py-20" style="background-color:var(--color-bg-section);">
   <div class="w-full md:w-2/3 flex order-last md:order-none">
     <Image src={aboutImage} alt="About Nine Lives Studio" class="rounded-xl object-cover w-full md:max-w-[50vw] aspect-square md:aspect-auto bg-[var(--color-bg-main)]" />
   </div>
