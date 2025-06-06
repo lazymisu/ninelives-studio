@@ -1,26 +1,26 @@
 export const music = [
 	{
-		type: "Alternative Rock",
+		type: "MIX & MASTERING",
 		url: "https://soundcloud.com/ninelivesstudio/the-fray-over-my-head-cover-by?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
 		title: "The Fray - Over My Head (Cover by Andrew Masters)",
 	},
 	{
-		type: "Latin",
+		type: "MIX & MASTERING",
 		url: "https://soundcloud.com/ninelivesstudio/monsieur-perine-encanto?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
 		title: "Monsieur Perine - Encanto Tropical (Live Session)",
 	},
 	{
-		type: "Pop",
+		type: "MIX & MASTERING",
 		url: "https://soundcloud.com/ninelivesstudio/ed-sheran-ft-ariana-grande?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
 		title: "Ed Sheran ft Ariana Grande - Lonely",
 	},
 	{
-		type: "Salsa",
+		type: "MIX & MASTERING",
 		url: "https://soundcloud.com/ninelivesstudio/callaita-djlean?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
 		title: "Callaita - DJLean",
 	},
 	{
-		type: "Pop Rock",
+		type: "MIX & MASTERING",
 		url: "https://soundcloud.com/ninelivesstudio/aire-bochardt?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
 		title: "Aire - Bochardt",
 	},
