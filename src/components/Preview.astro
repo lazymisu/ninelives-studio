@@ -17,18 +17,27 @@ const typeEmoji =
 
 <li>
     <article class="flex items-center justify-between py-6">
-        <span class="font-bold text-[22px] min-w-[40px]" aria-hidden="true"
-            >{typeEmoji}</span
-        >
-        <div class="flex-1 flex flex-col items-start px-4">
-            <span class="text-base font-medium text-primary">{title}</span>
-            <span class="text-xs uppercase font-semibold mt-1 text-secondary"
-                >{type}</span
+        <header class="flex items-center flex-1">
+            <figure
+                class="font-bold text-[22px] min-w-[40px]"
+                aria-hidden="true"
             >
-        </div>
-        <a
-            class="underline font-medium text-sm whitespace-nowrap text-accent"
-            href={url}>Escúchala aquí</a
-        >
+                {typeEmoji}
+            </figure>
+            <div class="flex-1 flex flex-col items-start px-4">
+                <h1 class="text-base font-medium text-primary">{title}</h1>
+                <p class="text-xs uppercase font-semibold mt-1 text-secondary">
+                    {type}
+                </p>
+            </div>
+        </header>
+        <footer>
+            <a
+                class="underline font-medium text-sm whitespace-nowrap text-accent"
+                href={url}
+            >
+                Escúchala aquí
+            </a>
+        </footer>
     </article>
 </li>
