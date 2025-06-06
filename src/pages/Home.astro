@@ -1,39 +1,61 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 import { services } from "../data/services";
-import nlsImage from '../assets/nls.png';
+import nlsImage from "../assets/nls.png";
 ---
 
 <section
     id="home"
-    class="w-full flex flex-col gap-8 px-4 md:px-12 xl:px-24 py-8 md:py-12 xl:py-20 mt-24"
-    style="background-color:var(--color-bg-section);"
+    class="w-full flex flex-col gap-8 px-4 md:px-12 xl:px-24 py-8 md:py-12 xl:py-20 mt-24 bg-background"
 >
     <div class="w-full">
-        <h1 class="text-[12vw] xl:text-[12vw] font-extrabold leading-none tracking-tight uppercase text-left" style="color:var(--color-primary);line-height:0.95;">
+        <h1
+            class="text-[12vw] xl:text-[12vw] font-extrabold leading-none tracking-tight uppercase text-left text-accent"
+        >
             NINE LIVES STUDIO
         </h1>
     </div>
-    <div class="flex-1 w-full grid grid-cols-1 xl:grid-cols-3 gap-8 items-end place-items-end">
+    <div
+        class="flex-1 w-full grid grid-cols-1 xl:grid-cols-3 gap-8 items-end place-items-end"
+    >
         <div class="flex flex-col gap-4 self-end w-full">
-            <h2 class="font-bold text-base xl:text-lg mb-1" style="color:var(--color-text-main);">Servicios</h2>
+            <h2 class="font-bold text-base xl:text-lg mb-1 text-primary">
+                Servicios
+            </h2>
             <ol class="flex flex-col gap-2">
-                {services.map((u) => (
-                    <li class="flex items-center gap-3 rounded-xl p-4 text-sm xl:text-base" style="background-color:var(--color-bg-main);">
-                        <span class="text-2xl">{u.icon}</span>
-                        <span style="color:var(--color-text-main);">{u.title}</span>
-                    </li>
-                ))}
+                {
+                    services.map((u) => (
+                        <li class="flex items-center gap-3 rounded-xl p-4 text-sm xl:text-base bg-fill">
+                            <span class="text-2xl">{u.icon}</span>
+                            <span class="text-primary">{u.title}</span>
+                        </li>
+                    ))
+                }
             </ol>
         </div>
         <div class="flex flex-col self-end w-full">
-            <p class="text-base xl:text-lg mb-3" style="color:var(--color-text-main);">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            <p class="text-base xl:text-lg mb-3 text-primary">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur.
             </p>
-            <a href="#about" class="underline font-medium text-sm whitespace-nowrap" style="color:var(--color-primary);">Sobre nosotros</a>
+            <a
+                href="#about"
+                class="underline font-medium text-sm whitespace-nowrap text-accent"
+                >Sobre nosotros</a
+            >
         </div>
-        <div class="flex justify-center items-center h-48 md:h-64 xl:h-80 w-full">
-            <Image src={nlsImage} alt="Nine Lives Studio" class="max-w-full max-h-full object-contain" />
+        <div
+            class="flex justify-center items-center h-48 md:h-64 xl:h-80 w-full"
+        >
+            <Image
+                src={nlsImage}
+                alt="Nine Lives Studio"
+                class="max-w-full max-h-full object-contain"
+            />
         </div>
     </div>
 </section>

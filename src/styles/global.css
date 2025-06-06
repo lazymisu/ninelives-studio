@@ -4,30 +4,30 @@
 
 :root {
   /* Dark mode variables */
-  --color-dark-bg-main: #232323;
-  --color-dark-bg-section: #151516;
-  --color-dark-primary: #FC4AB5;
-  --color-dark-text-main: #D0CFCD;
-  --color-dark-text-accent: #CF552C;
+  --color-dark-accent: #FC4AB5;
+  --color-dark-primary: #D0CFCD;
+  --color-dark-secondary: #CF552C;
+  --color-dark-background: #151516;
+  --color-dark-fill: #232323;
 
   /* Light mode variables - using same values as dark mode for now */
-  --color-bg-main: var(--color-dark-bg-main);
-  --color-bg-section: var(--color-dark-bg-section);
+  --color-accent: var(--color-dark-accent);
   --color-primary: var(--color-dark-primary);
-  --color-text-main: var(--color-dark-text-main);
-  --color-text-accent: var(--color-dark-text-accent);
+  --color-secondary: var(--color-dark-secondary);
+  --color-background: var(--color-dark-background);
+  --color-fill: var(--color-dark-fill);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg-main: var(--color-dark-bg-main);
-    --color-bg-section: var(--color-dark-bg-section);
+    --color-accent: var(--color-dark-accent);
     --color-primary: var(--color-dark-primary);
-    --color-text-main: var(--color-dark-text-main);
-    --color-text-accent: var(--color-dark-text-accent);
+    --color-secondary: var(--color-dark-secondary);
+    --color-background: var(--color-dark-background);
+    --color-fill: var(--color-dark-fill);
   }
 }
 
 body {
-  background-color: var(--color-bg-section);
+  background-color: var(--color-background);
 }

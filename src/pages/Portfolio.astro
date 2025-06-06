@@ -1,0 +1,32 @@
+---
+import Preview from "../components/Preview.astro";
+import { music } from "../data/music";
+import musicVideo from "../assets/music-side.mp4";
+---
+
+<section
+  id="portfolio"
+  class="w-full flex flex-col gap-8 px-4 md:px-12 xl:px-24 py-8 md:py-12 xl:py-20 bg-background"
+>
+  <h1
+    class="w-full text-left font-extrabold text-[8vw] leading-none tracking-tight uppercase mb-8 text-accent"
+  >
+    PORTAFOLIO
+  </h1>
+  <div class="w-full flex flex-col md:flex-row items-start gap-8">
+    <div class="w-full md:w-2/3 flex flex-col">
+      <ul class="w-full divide-y border-y border-fill divide-fill">
+        {music.map((m) => <Preview {...m} />)}
+      </ul>
+    </div>
+    <div class="hidden md:flex w-1/3 items-start justify-end">
+      <video
+        src={musicVideo}
+        class="rounded-xl shadow-lg object-cover w-full aspect-[3/4] max-w-[420px]"
+        autoplay
+        loop
+        muted
+        playsinline></video>
+    </div>
+  </div>
+</section>

@@ -1,52 +1,44 @@
 ---
-
+import Socials from "../components/Socials.astro";
+import { socialLinks } from "../config/socials";
 ---
 
-<section id="contact" class="w-full flex flex-col gap-8 px-4 md:px-12 xl:px-24 py-8 md:py-12 xl:py-20" style="background-color:var(--color-bg-section);">
-    <h1 class="w-full text-left font-extrabold text-[8vw] leading-none tracking-tight uppercase mb-8" style="color:var(--color-primary);">
+<section
+    id="contact"
+    class="w-full flex flex-col gap-8 px-4 md:px-12 xl:px-24 py-8 md:py-12 xl:py-20 bg-background"
+>
+    <h1
+        class="w-full text-left font-extrabold text-[8vw] leading-none tracking-tight uppercase mb-8 text-accent"
+    >
         NINE LIVES STUDIO
     </h1>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
         <article>
-            <p class="text-sm font-bold" style="color:var(--color-text-main);">Información general</p>
-            <p class="my-3 text-sm font-regular" style="color:var(--color-text-main);">Escríbenos a:</p>
+            <p class="text-sm font-bold text-primary">Información general</p>
+            <p class="my-3 text-sm font-regular text-primary">Escríbenos a:</p>
             <a
-                class="font-medium underline"
-                style="color:var(--color-primary);"
+                class="font-medium underline text-accent"
                 href="mailto:info@ninelives.studio">info@ninelives.studio</a
             >
         </article>
         <article>
-            <p class="text-sm font-bold" style="color:var(--color-text-main);">Reservas</p>
-            <p class="my-3 text-sm font-normal" style="color:var(--color-text-main);">¿Quieres trabajar con nosotros o agendar una sesión?</p>
+            <p class="text-sm font-bold text-primary">Reservas</p>
+            <p class="my-3 text-sm font-normal text-primary">
+                ¿Quieres trabajar con nosotros o agendar una sesión?
+            </p>
             <a
-                class="font-medium underline"
-                style="color:var(--color-primary);"
-                href="https://instagram.com/ninelives.studio" target="_blank">@ninelives.studio</a
+                class="font-medium underline text-accent"
+                href={socialLinks.instagram}
+                target="_blank">@ninelivesstudio_</a
             >
         </article>
         <article>
-            <p class="text-sm font-bold" style="color:var(--color-text-main);">Redes sociales</p>
-            <p class="my-3 text-sm font-normal" style="color:var(--color-text-main);">Síguenos y mantente al tanto de nuestros últimos proyectos</p>
+            <p class="text-sm font-bold text-primary">Redes sociales</p>
+            <p class="my-3 text-sm font-normal text-primary">
+                Síguenos y mantente al tanto de nuestros últimos proyectos
+            </p>
             <div class="my-3 flex gap-4">
-                <a
-                    class="text-2xl"
-                    style="color:var(--color-primary);"
-                    href="https://instagram.com/ninelives.studio"
-                    target="_blank"
-                    aria-label="Instagram"
-                >
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a
-                    class="text-2xl"
-                    style="color:var(--color-primary);"
-                    href="https://soundcloud.com/ninelives.studio"
-                    target="_blank"
-                    aria-label="SoundCloud"
-                >
-                    <i class="fab fa-soundcloud"></i>
-                </a>
+                <Socials />
             </div>
         </article>
     </div>
