@@ -9,7 +9,7 @@ import musicVideo from "../assets/music-side.mp4";
   class="w-full flex flex-col gap-8 px-4 md:px-12 xl:px-24 py-8 md:py-12 xl:py-20 bg-background"
 >
   <h1
-    class="w-full text-left font-extrabold text-[8vw] leading-none tracking-tight uppercase mb-8 text-accent"
+    class="title translate-y-10 opacity-0 w-full text-left font-extrabold text-[8vw] leading-none tracking-tight uppercase mb-8 text-accent"
   >
     PORTAFOLIO
   </h1>
@@ -30,3 +30,21 @@ import musicVideo from "../assets/music-side.mp4";
     </div>
   </div>
 </section>
+
+<script>
+  import("gsap").then(({ gsap }) => {
+    import("gsap/ScrollTrigger").then(({ ScrollTrigger }) => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.to(".title", {
+        scrollTrigger: {
+          trigger: "#portfolio",
+          start: "center bottom",
+        },
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+      });
+    });
+  });
+</script>

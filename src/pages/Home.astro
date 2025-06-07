@@ -10,13 +10,13 @@ import nlsImage from "../assets/nls.png";
 >
     <div class="w-full">
         <h1
-            class="text-[12vw] xl:text-[12vw] font-extrabold leading-none tracking-tight uppercase text-left text-accent"
+            class="hero -translate-x-10 opacity-0 text-[12vw] xl:text-[12vw] font-extrabold leading-none tracking-tight uppercase text-left text-accent"
         >
             NINE LIVES STUDIO
         </h1>
     </div>
     <div
-        class="flex-1 w-full grid grid-cols-1 xl:grid-cols-3 gap-8 items-end place-items-end"
+        class="home translate-y-10 opacity-0 flex-1 w-full grid grid-cols-1 xl:grid-cols-3 gap-8 items-end place-items-end"
     >
         <div class="flex flex-col gap-4 self-end w-full">
             <h2 class="font-bold text-base xl:text-lg mb-1 text-primary">
@@ -35,12 +35,11 @@ import nlsImage from "../assets/nls.png";
         </div>
         <div class="flex flex-col self-end w-full">
             <p class="text-base xl:text-lg mb-3 text-primary">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur.
+                Somos un espacio dedicado al sonido en todas sus formas: la
+                música que se mezcla, las emociones que se masterizan y las
+                historias que se cuentan a través del audio. Este proyecto nace
+                desde el deseo de trabajar el sonido con intención, con detalle,
+                con tiempo.
             </p>
             <a
                 href="#about"
@@ -59,3 +58,21 @@ import nlsImage from "../assets/nls.png";
         </div>
     </div>
 </section>
+
+<script>
+    import("gsap").then(({ gsap }) => {
+        gsap.to(".hero", {
+            x: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "back.out",
+        });
+
+        gsap.to(".home", {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "back.out",
+        });
+    });
+</script>
