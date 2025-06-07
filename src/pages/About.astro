@@ -5,41 +5,50 @@ import aboutImage from "../assets/about-image.jpg";
 
 <section
   id="about"
-  class="w-full flex flex-col md:flex-row gap-4 px-4 md:px-12 xl:px-24 py-8 md:py-12 xl:py-20 bg-background"
+  class="w-full flex flex-col lg:flex-row gap-4 px-4 md:px-12 xl:px-24 py-8 md:py-12 xl:py-20 bg-background"
 >
-  <div class="w-full md:w-2/3 flex order-last md:order-none">
+  <h1
+    class="w-full text-left font-extrabold text-[8vw] leading-none tracking-tight uppercase mb-8 text-accent lg:hidden"
+  >
+    SOBRE NINE LIVES STUDIO
+  </h1>
+  <div class="w-full flex order-last lg:order-none">
     <Image
       src={aboutImage}
       alt="CEO de Nine Lives Studio"
-      class="rounded-xl object-cover w-full md:max-w-[50vw] aspect-square md:aspect-auto bg-fill"
+      class="rounded-xl object-cover w-full lg:aspect-square aspect-video bg-fill"
     />
   </div>
-  <div class="w-full md:w-1/2 flex flex-col relative">
+  <div class="w-full lg:w-3/4 flex flex-col relative">
     <h1
-      class="w-full text-left font-extrabold text-[8vw] leading-none tracking-tight uppercase mb-8 text-accent"
+      class="w-full text-left font-extrabold text-[8vw] leading-none tracking-tight uppercase mb-8 text-accent hidden lg:block"
     >
       <span class="md:block md:-ml-36">SOBRE</span>
       <span class="md:block md:-ml-24">NINE LIVES</span>
       <span class="md:block md:-ml-14">STUDIO</span>
     </h1>
     <div>
-      <p class="mb-6 text-base md:text-lg text-primary">
+      <p class="mb-6 text-base xl:text-lg text-primary">
         Nine Lives Studio es un espacio dedicado al sonido en todas sus formas:
         la música que se mezcla, las emociones que se masterizan y las historias
         que se cuentan a través del audio. Este proyecto nace desde el deseo de
-        trabajar el sonido con intención, con detalle, con tiempo. No creemos en
-        la perfección fría, sino en ese punto exacto donde una canción suena
-        viva, o donde una escena cobre dimensión gracias al diseño sonoro.
+        trabajar el sonido con intención, con detalle, con tiempo.
       </p>
 
-      <p class="text-base md:text-lg text-primary mb-6">
+      <p class="mb-6 text-base xl:text-lg text-primary">
+        No creemos en la perfección fría, sino en ese punto exacto donde una
+        canción suena viva, o donde una escena cobre dimensión gracias al diseño
+        sonoro.
+      </p>
+
+      <p class="text-base xl:text-lg text-primary mb-6">
         En este estudio combino herramientas profesionales, criterio musical y
         un enfoque personalizado. Ya sea para un track que necesita claridad y
         carácter, o para un cortometraje que busca profundidad y atmósfera, mi
         compromiso es el mismo: Potencia lo que quieres comunicar.
       </p>
 
-      <p class="text-base md:text-lg text-primary">
+      <p class="text-base xl:text-lg text-primary">
         Acá vas a encontrar un espacio abierto para poder crecer junto a
         artistas y realizadores. Si te interesa colaborar, trabajar juntos o
         simplemente escuchar lo que hago, estás más que invitado.
