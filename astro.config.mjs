@@ -1,9 +1,12 @@
-// @ts-check
-import { defineConfig } from 'astro/config';
-import sitemap from "@astrojs/sitemap";
+import { defineConfig } from 'astro/config'
+import tailwind from '@astrojs/tailwind'
+import sitemap from '@astrojs/sitemap'
 
-// https://astro.build/config
 export default defineConfig({
-    integrations: [sitemap()],
-    site: "https://www.ninelivestudio.com",
-});
+  site: 'https://ninelivestudio.com',
+  integrations: [
+    tailwind(),
+    sitemap(),
+  ],
+  output: 'static',
+})
