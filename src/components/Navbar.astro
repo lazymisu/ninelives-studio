@@ -21,15 +21,19 @@ const options = [
         </div>
         <div class="relative flex justify-between items-end h-20">
             <div class="flex items-center gap-8 h-full">
-                <div class="socials-nav h-full items-end md:flex hidden" role="complementary" aria-label="Redes sociales">
+                <div
+                    class="socials-nav h-full items-end md:flex hidden"
+                    role="complementary"
+                    aria-label="Redes sociales"
+                >
                     <Socials />
                 </div>
-                <h1
+                <p
                     class="font-extrabold text-2xl md:text-3xl transition-all duration-300 h-full items-end md:hidden flex text-accent"
                     id="brand-name"
                 >
                     NINE LIVES STUDIO
-                </h1>
+                </p>
             </div>
             <div class="flex items-end gap-8 h-full">
                 <ol
@@ -44,7 +48,9 @@ const options = [
                                     href={e.url}
                                     class="hover:text-accent transition-colors"
                                     role="menuitem"
-                                    aria-current={e.url === "#home" ? "page" : undefined}
+                                    aria-current={
+                                        e.url === "#home" ? "page" : undefined
+                                    }
                                 >
                                     {e.title}
                                 </a>
@@ -85,14 +91,19 @@ const options = [
                     <i class="fas fa-times fa-2x" aria-hidden="true"></i>
                 </button>
             </div>
-            <ol class="flex flex-col gap-4 px-8 pb-8 text-xl font-bold text-primary" role="menu">
+            <ol
+                class="flex flex-col gap-4 px-8 pb-8 text-xl font-bold text-primary"
+                role="menu"
+            >
                 {
                     options.map((e) => (
                         <li role="none">
-                            <a 
-                                href={e.url} 
+                            <a
+                                href={e.url}
                                 role="menuitem"
-                                aria-current={e.url === "#home" ? "page" : undefined}
+                                aria-current={
+                                    e.url === "#home" ? "page" : undefined
+                                }
                             >
                                 {e.title}
                             </a>
