@@ -9,6 +9,6 @@ export const services = [
 	},
 	{
 		icon: "🎧",
-		title: "Postproduccion de Audio"
+		title: "Postproducción de Audio"
 	}
 ];
