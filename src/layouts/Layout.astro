@@ -62,6 +62,50 @@ import "../styles/global.css";
 			content="https://www.ninelivestudio.com/nls-og.jpeg"
 		/>
 		<link rel="canonical" href="https://www.ninelivestudio.com" />
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "LocalBusiness",
+				"name": "Nine Lives Studio",
+				"image": "https://ninelivestudio.com/image.png",
+				"@id": "https://ninelivestudio.com",
+				"url": "https://ninelivestudio.com",
+				"telephone": "+54 9 11 2737-7284",
+				"priceRange": "69",
+				"address": {
+					"@type": "PostalAddress",
+					"streetAddress": "Formosa 523",
+					"addressLocality": "Cdad. Autónoma de Buenos Aires",
+					"postalCode": "C1424BZK",
+					"addressCountry": "AR"
+				},
+				"geo": {
+					"@type": "GeoCoordinates",
+					"latitude": -34.6212315,
+					"longitude": -58.4382724
+				},
+				"openingHoursSpecification": {
+					"@type": "OpeningHoursSpecification",
+					"dayOfWeek": [
+						"Monday",
+						"Tuesday",
+						"Wednesday",
+						"Thursday",
+						"Friday",
+						"Saturday",
+						"Sunday"
+					],
+					"opens": "00:00",
+					"closes": "23:59"
+				},
+				"sameAs": [
+					"https://instagram.com/ninelivesstudio_",
+					"https://youtube.com/@Nine-Lives-Studio",
+					"https://soundcloud.com/ninelivesstudio",
+					"https://ninelivestudio.com"
+				]
+			}
+		</script>
 	</head>
 	<body>
 		<slot />
