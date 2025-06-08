@@ -8,20 +8,25 @@ import nlsImage from "../assets/nls.png";
     id="home"
     class="w-full flex flex-col gap-8 px-4 md:px-12 xl:px-24 py-8 md:py-12 xl:py-20 mt-24 bg-background"
 >
+    <h1 class="sr-only">
+        Estudio de mezcla, mastering y postproducción de audio ubicado en
+        Buenos Aires, Argentina. Especializado en rock, indie y alternativo -
+        Nine Lives Studio
+    </h1>
     <div class="w-full">
-        <h1
+        <h2
             class="hero -translate-x-10 opacity-0 text-[12vw] xl:text-[12vw] font-extrabold leading-none tracking-tight uppercase text-left text-accent"
         >
             NINE LIVES STUDIO
-        </h1>
+        </h2>
     </div>
     <div
         class="home translate-y-10 opacity-0 flex-1 w-full grid grid-cols-1 xl:grid-cols-3 gap-8 items-end place-items-end"
     >
         <div class="flex flex-col gap-4 self-end w-full">
-            <h2 class="font-bold text-base xl:text-lg mb-1 text-primary">
+            <h3 class="font-bold text-base xl:text-lg mb-1 text-primary">
                 Servicios
-            </h2>
+            </h3>
             <ol class="flex flex-col gap-2">
                 {
                     services.map((u) => (
@@ -75,4 +80,4 @@ import nlsImage from "../assets/nls.png";
             ease: "back.out",
         });
     });
-</script> 
+</script>
