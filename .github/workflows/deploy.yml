@@ -9,6 +9,8 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     environment: Production
+    env:
+      SSH_AUTH_SOCK: /tmp/ssh_agent.sock # Define el socket para ssh-agent
     
     steps:
       - name: Checkout repository
@@ -26,11 +28,14 @@ jobs:
       - name: Build
         run: npm run build
 
-      # - name: Add SSH key
-      #   uses: webfactory/ssh-agent@v0.7.0
-      #   with:
-      #     ssh-private-key: ${{ secrets.SFTP_PRIVATE_KEY }}
-      #     passphrase: ${{ secrets.SFTP_PASSPHRASE }}
+      - name: Setup SSH with a passphrase
+        env:
+          SFTP_PASSPHRASE: ${{secrets.SFTP_PASSPHRASE}}
+          SFTP_PRIVATE_KEY: ${{secrets.SFTP_PRIVATE_KEY}}
+        run: |
+          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+          echo "echo $SFTP_PASSPHRASE" > ~/.ssh_askpass && chmod +x ~/.ssh_askpass
+          echo "$SFTP_PRIVATE_KEY" | tr -d '\r' | DISPLAY=None SSH_ASKPASS=~/.ssh_askpass ssh-add - >/dev/null
 
       - name: Deploy to SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
@@ -38,7 +43,7 @@ jobs:
           username: ${{ secrets.SFTP_USERNAME }}
           server: ${{ secrets.SFTP_HOST }}
           port: 50987
-          ssh_private_key: ${{ secrets.SFTP_PRIVATE_KEY }}
+          ssh_private_key: '' # Se deja vacío porque la clave ya está en el agente SSH
           local_path: './dist/*'
           remote_path: ${{ secrets.SFTP_REMOTE_PATH }}
           exclude: |
