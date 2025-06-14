@@ -33,9 +33,20 @@ jobs:
           SFTP_PASSPHRASE: ${{secrets.SFTP_PASSPHRASE}}
           SFTP_PRIVATE_KEY: ${{secrets.SFTP_PRIVATE_KEY}}
         run: |
+          # Start ssh-agent
           ssh-agent -a $SSH_AUTH_SOCK > /dev/null
-          echo "echo $SFTP_PASSPHRASE" > ~/.ssh_askpass && chmod +x ~/.ssh_askpass
-          echo "$SFTP_PRIVATE_KEY" | tr -d '\r' | DISPLAY=None SSH_ASKPASS=~/.ssh_askpass ssh-add - >/dev/null
+
+          # Create the ssh-askpass script robustly
+          # printf %q will quote special characters for shell interpretation
+          printf 'echo %q\n' "$SFTP_PASSPHRASE" > ~/.ssh_askpass
+          chmod +x ~/.ssh_askpass
+
+          # Create a temporary file for the private key
+          echo "$SFTP_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/github_actions_sftp_key
+          chmod 600 ~/.ssh/github_actions_sftp_key
+
+          # Add the key to the ssh-agent using the askpass script
+          DISPLAY=None SSH_ASKPASS=~/.ssh_askpass ssh-add ~/.ssh/github_actions_sftp_key >/dev/null
 
       - name: Deploy to SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
