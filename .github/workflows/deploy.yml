@@ -26,11 +26,11 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Add SSH key
-        uses: webfactory/ssh-agent@v0.7.0
-        with:
-          ssh-private-key: ${{ secrets.SFTP_PRIVATE_KEY }}
-          passphrase: ${{ secrets.SFTP_PASSPHRASE }}
+      # - name: Add SSH key
+      #   uses: webfactory/ssh-agent@v0.7.0
+      #   with:
+      #     ssh-private-key: ${{ secrets.SFTP_PRIVATE_KEY }}
+      #     passphrase: ${{ secrets.SFTP_PASSPHRASE }}
 
       - name: Deploy to SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
@@ -38,7 +38,7 @@ jobs:
           username: ${{ secrets.SFTP_USERNAME }}
           server: ${{ secrets.SFTP_HOST }}
           port: 50987
-          ssh_private_key: '' # Se deja vacío porque la clave ya está en el agente SSH
+          ssh_private_key: ${{ secrets.SFTP_PRIVATE_KEY }}
           local_path: './dist/*'
           remote_path: ${{ secrets.SFTP_REMOTE_PATH }}
           exclude: |
