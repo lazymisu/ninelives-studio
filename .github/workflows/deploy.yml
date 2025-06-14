@@ -1,4 +1,4 @@
-name: Deploy to SFTP
+name: Deploy to FTP
 
 on:
   push:
@@ -9,8 +9,6 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     environment: Production
-    env:
-      SSH_AUTH_SOCK: /tmp/ssh_agent.sock # Define el socket para ssh-agent
     
     steps:
       - name: Checkout repository
@@ -28,37 +26,16 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Setup SSH with a passphrase
-        env:
-          SFTP_PASSPHRASE: ${{secrets.SFTP_PASSPHRASE}}
-          SFTP_PRIVATE_KEY: ${{secrets.SFTP_PRIVATE_KEY}}
-        run: |
-          # Start ssh-agent
-          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
-
-          # Create the ssh-askpass script robustly
-          # printf %q will quote special characters for shell interpretation
-          printf 'echo %q\n' "$SFTP_PASSPHRASE" > ~/.ssh_askpass
-          chmod +x ~/.ssh_askpass
-
-          # Create a temporary file for the private key
-          echo "$SFTP_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/github_actions_sftp_key
-          chmod 600 ~/.ssh/github_actions_sftp_key
-
-          # Add the key to the ssh-agent using the askpass script
-          DISPLAY=None SSH_ASKPASS=~/.ssh_askpass ssh-add ~/.ssh/github_actions_sftp_key >/dev/null
-
-      - name: Deploy to SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      - name: Deploy to FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          username: ${{ secrets.SFTP_USERNAME }}
           server: ${{ secrets.SFTP_HOST }}
-          port: 50987
-          ssh_private_key: '' # Se deja vacío porque la clave ya está en el agente SSH
-          local_path: './dist/*'
-          remote_path: ${{ secrets.SFTP_REMOTE_PATH }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSPHRASE }}
+          local-dir: './dist/'
+          server-dir: ${{ secrets.SFTP_REMOTE_PATH }}
           exclude: |
             **/.git*
             **/.git*/*
             **/node_modules/**
-            node_modules/** 
+            node_modules/**
