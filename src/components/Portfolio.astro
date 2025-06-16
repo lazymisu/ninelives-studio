@@ -1,9 +1,9 @@
 ---
 import Preview from "../components/Preview.astro";
-import { urls } from "../config/urls";
+// import { urls } from "../config/urls";
 import { music } from "../data/music";
 
-const video = urls.cdn + "/portfolio-side.mp4";
+// const video = urls.cdn + "/portfolio-side.mp4";
 ---
 
 <section
@@ -21,7 +21,7 @@ const video = urls.cdn + "/portfolio-side.mp4";
         {music.map((m) => <Preview {...m} />)}
       </ul>
     </div>
-    <div class="flex w-full md:w-1/3 items-start justify-center md:justify-end">
+    <!-- <div class="flex w-full md:w-1/3 items-start justify-center md:justify-end">
       <video
         src={video}
         class="rounded-xl shadow-lg object-cover w-full aspect-[3/4] max-w-[420px] bg-fill"
@@ -29,6 +29,6 @@ const video = urls.cdn + "/portfolio-side.mp4";
         loop
         muted
         playsinline></video>
-    </div>
+    </div> -->
   </div>
 </section>
