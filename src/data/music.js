@@ -24,4 +24,9 @@ export const music = [
 		url: "https://soundcloud.com/ninelivesstudio/aire-bochardt?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
 		title: "Aire - Bochardt",
 	},
+	{
+		type: "POSTPRODUCCIÓN DE AUDIO",
+		url: "https://youtu.be/4MBZK2U7ayc",
+		title: "Destiny (Corto Animado)",
+	},
 ];
