@@ -1,4 +1,4 @@
-export const music = [
+export const portfolio = [
 	{
 		type: "MIX & MASTERING",
 		url: "https://soundcloud.com/ninelivesstudio/the-fray-over-my-head-cover-by?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",

@@ -12,6 +12,8 @@ const typeEmoji =
         "MIX & MASTERING": "🎚️",
         "POSTPRODUCCIÓN DE AUDIO": "🎬",
     }[type] || "🎵";
+
+const textLink = type === "POSTPRODUCCIÓN DE AUDIO" ? "Mirálo aquí" : "Escúchala aquí";
 ---
 
 <li>
@@ -35,7 +37,7 @@ const typeEmoji =
                 class="underline font-medium text-sm whitespace-nowrap text-accent"
                 href={url}
                 target="_blank"
-                rel="noopener noreferrer">Escúchala aquí</a
+                rel="noopener noreferrer">{textLink}</a
             >
         </footer>
     </article>
