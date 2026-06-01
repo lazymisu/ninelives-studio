@@ -1,31 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  /* Dark mode variables */
-  --color-dark-accent: #BBBBC5;
-  --color-dark-primary: #D0CFCD;
-  --color-dark-secondary: #69696E;
-  --color-dark-background: #151516;
-  --color-dark-fill: #232323;
-
-  /* Light mode variables - using same values as dark mode for now */
-  --color-accent: var(--color-dark-accent);
-  --color-primary: var(--color-dark-primary);
-  --color-secondary: var(--color-dark-secondary);
-  --color-background: var(--color-dark-background);
-  --color-fill: var(--color-dark-fill);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-accent: var(--color-dark-accent);
-    --color-primary: var(--color-dark-primary);
-    --color-secondary: var(--color-dark-secondary);
-    --color-background: var(--color-dark-background);
-    --color-fill: var(--color-dark-fill);
-  }
+@theme {
+  --color-accent: #BBBBC5;
+  --color-primary: #D0CFCD;
+  --color-secondary: #69696E;
+  --color-background: #151516;
+  --color-fill: #232323;
 }
 
 html {
